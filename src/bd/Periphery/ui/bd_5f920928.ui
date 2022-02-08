@@ -1,0 +1,44 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.883883",
+   "Default View_TopLeft":"-203,-489",
+   "ExpandedHierarchyInLayout":"",
+   "PinnedPorts":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS-threadsafe
+#  -string -flagsOSRD
+preplace port DDR -pg 1 -lvl 4 -x 1290 -y -300 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 4 -x 1290 -y -280 -defaultsOSRD
+preplace port BtnIn -pg 1 -lvl 4 -x 1290 -y 580 -defaultsOSRD
+preplace port LEDOut -pg 1 -lvl 4 -x 1290 -y 600 -defaultsOSRD
+preplace port IIC_0 -pg 1 -lvl 4 -x 1290 -y -260 -defaultsOSRD
+preplace port port-id_SPI0_SCLK_O_0 -pg 1 -lvl 4 -x 1290 -y -200 -defaultsOSRD
+preplace port port-id_SPI0_MISO_I_0 -pg 1 -lvl 0 -x -50 -y -100 -defaultsOSRD
+preplace port port-id_SPI0_MOSI_O_0 -pg 1 -lvl 4 -x 1290 -y -140 -defaultsOSRD
+preplace port port-id_SPI0_SS_O_0 -pg 1 -lvl 4 -x 1290 -y -20 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 1 -x 420 -y -90 -defaultsOSRD
+preplace inst axi_gpio_0 -pg 1 -lvl 3 -x 1150 -y 600 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 2 -x 840 -y 580 -defaultsOSRD
+preplace inst rst_ps7_0_100M -pg 1 -lvl 2 -x 840 -y 290 -defaultsOSRD
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 -20 180 620 460 1010
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 1 1 630 120n
+preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 1 2 650 450 1020
+preplace netloc axi_gpio_0_ip2intc_irpt 1 0 4 -10 190 NJ 190 NJ 190 1270
+preplace netloc processing_system7_0_SPI0_SCLK_O 1 1 3 NJ -200 NJ -200 NJ
+preplace netloc SPI0_MISO_I_0_1 1 0 2 -30J -360 620
+preplace netloc processing_system7_0_SPI0_MOSI_O 1 1 3 NJ -140 NJ -140 NJ
+preplace netloc processing_system7_0_SPI0_SS_O 1 1 3 NJ -20 NJ -20 NJ
+preplace netloc processing_system7_0_DDR 1 1 3 N -300 N -300 N
+preplace netloc processing_system7_0_FIXED_IO 1 1 3 N -280 N -280 N
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 640J 80n
+preplace netloc ps7_0_axi_periph_M00_AXI 1 2 1 NJ 580
+preplace netloc axi_gpio_0_GPIO 1 3 1 N 580
+preplace netloc axi_gpio_0_GPIO2 1 3 1 N 600
+preplace netloc processing_system7_0_IIC_0 1 1 3 N -260 N -260 N
+levelinfo -pg 1 -50 420 840 1150 1290
+pagesize -pg 1 -db -bbox -sgen -210 -640 1450 700
+"
+}
+{
+   "da_axi4_cnt":"1",
+   "da_ps7_cnt":"1"
+}
