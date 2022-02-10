@@ -1,7 +1,7 @@
 --Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
---Date        : Mon Feb  7 18:57:27 2022
+--Date        : Thu Feb 10 18:31:17 2022
 --Host        : ZENW11 running 64-bit major release  (build 9200)
 --Command     : generate_target Periphery_wrapper.bd
 --Design      : Periphery_wrapper
@@ -48,6 +48,10 @@ end Periphery_wrapper;
 architecture STRUCTURE of Periphery_wrapper is
   component Periphery is
   port (
+    SPI0_SCLK_O_0 : out STD_LOGIC;
+    SPI0_MISO_I_0 : in STD_LOGIC;
+    SPI0_MOSI_O_0 : out STD_LOGIC;
+    SPI0_SS_O_0 : out STD_LOGIC;
     DDR_cas_n : inout STD_LOGIC;
     DDR_cke : inout STD_LOGIC;
     DDR_ck_n : inout STD_LOGIC;
@@ -69,22 +73,18 @@ architecture STRUCTURE of Periphery_wrapper is
     FIXED_IO_ps_srstb : inout STD_LOGIC;
     FIXED_IO_ps_clk : inout STD_LOGIC;
     FIXED_IO_ps_porb : inout STD_LOGIC;
-    BtnIn_tri_i : in STD_LOGIC_VECTOR ( 5 downto 0 );
-    BtnIn_tri_o : out STD_LOGIC_VECTOR ( 5 downto 0 );
-    BtnIn_tri_t : out STD_LOGIC_VECTOR ( 5 downto 0 );
-    LEDOut_tri_i : in STD_LOGIC_VECTOR ( 9 downto 0 );
-    LEDOut_tri_o : out STD_LOGIC_VECTOR ( 9 downto 0 );
-    LEDOut_tri_t : out STD_LOGIC_VECTOR ( 9 downto 0 );
     IIC_0_sda_i : in STD_LOGIC;
     IIC_0_sda_o : out STD_LOGIC;
     IIC_0_sda_t : out STD_LOGIC;
     IIC_0_scl_i : in STD_LOGIC;
     IIC_0_scl_o : out STD_LOGIC;
     IIC_0_scl_t : out STD_LOGIC;
-    SPI0_SCLK_O_0 : out STD_LOGIC;
-    SPI0_MISO_I_0 : in STD_LOGIC;
-    SPI0_MOSI_O_0 : out STD_LOGIC;
-    SPI0_SS_O_0 : out STD_LOGIC
+    BtnIn_tri_i : in STD_LOGIC_VECTOR ( 5 downto 0 );
+    BtnIn_tri_o : out STD_LOGIC_VECTOR ( 5 downto 0 );
+    BtnIn_tri_t : out STD_LOGIC_VECTOR ( 5 downto 0 );
+    LEDOut_tri_i : in STD_LOGIC_VECTOR ( 9 downto 0 );
+    LEDOut_tri_o : out STD_LOGIC_VECTOR ( 9 downto 0 );
+    LEDOut_tri_t : out STD_LOGIC_VECTOR ( 9 downto 0 )
   );
   end component Periphery;
   component IOBUF is
