@@ -1,7 +1,7 @@
 --Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
---Date        : Thu Feb 10 18:31:17 2022
+--Date        : Sun Apr  3 10:40:23 2022
 --Host        : ZENW11 running 64-bit major release  (build 9200)
 --Command     : generate_target Periphery_wrapper.bd
 --Design      : Periphery_wrapper
@@ -38,6 +38,7 @@ entity Periphery_wrapper is
     IIC_0_scl_io : inout STD_LOGIC;
     IIC_0_sda_io : inout STD_LOGIC;
     LEDOut_tri_io : inout STD_LOGIC_VECTOR ( 9 downto 0 );
+    PMods_tri_io : inout STD_LOGIC_VECTOR ( 15 downto 0 );
     SPI0_MISO_I_0 : in STD_LOGIC;
     SPI0_MOSI_O_0 : out STD_LOGIC;
     SPI0_SCLK_O_0 : out STD_LOGIC;
@@ -52,6 +53,12 @@ architecture STRUCTURE of Periphery_wrapper is
     SPI0_MISO_I_0 : in STD_LOGIC;
     SPI0_MOSI_O_0 : out STD_LOGIC;
     SPI0_SS_O_0 : out STD_LOGIC;
+    BtnIn_tri_i : in STD_LOGIC_VECTOR ( 5 downto 0 );
+    BtnIn_tri_o : out STD_LOGIC_VECTOR ( 5 downto 0 );
+    BtnIn_tri_t : out STD_LOGIC_VECTOR ( 5 downto 0 );
+    LEDOut_tri_i : in STD_LOGIC_VECTOR ( 9 downto 0 );
+    LEDOut_tri_o : out STD_LOGIC_VECTOR ( 9 downto 0 );
+    LEDOut_tri_t : out STD_LOGIC_VECTOR ( 9 downto 0 );
     DDR_cas_n : inout STD_LOGIC;
     DDR_cke : inout STD_LOGIC;
     DDR_ck_n : inout STD_LOGIC;
@@ -79,12 +86,9 @@ architecture STRUCTURE of Periphery_wrapper is
     IIC_0_scl_i : in STD_LOGIC;
     IIC_0_scl_o : out STD_LOGIC;
     IIC_0_scl_t : out STD_LOGIC;
-    BtnIn_tri_i : in STD_LOGIC_VECTOR ( 5 downto 0 );
-    BtnIn_tri_o : out STD_LOGIC_VECTOR ( 5 downto 0 );
-    BtnIn_tri_t : out STD_LOGIC_VECTOR ( 5 downto 0 );
-    LEDOut_tri_i : in STD_LOGIC_VECTOR ( 9 downto 0 );
-    LEDOut_tri_o : out STD_LOGIC_VECTOR ( 9 downto 0 );
-    LEDOut_tri_t : out STD_LOGIC_VECTOR ( 9 downto 0 )
+    PMods_tri_i : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    PMods_tri_o : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    PMods_tri_t : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   end component Periphery;
   component IOBUF is
@@ -165,6 +169,70 @@ architecture STRUCTURE of Periphery_wrapper is
   signal LEDOut_tri_t_7 : STD_LOGIC_VECTOR ( 7 to 7 );
   signal LEDOut_tri_t_8 : STD_LOGIC_VECTOR ( 8 to 8 );
   signal LEDOut_tri_t_9 : STD_LOGIC_VECTOR ( 9 to 9 );
+  signal PMods_tri_i_0 : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal PMods_tri_i_1 : STD_LOGIC_VECTOR ( 1 to 1 );
+  signal PMods_tri_i_10 : STD_LOGIC_VECTOR ( 10 to 10 );
+  signal PMods_tri_i_11 : STD_LOGIC_VECTOR ( 11 to 11 );
+  signal PMods_tri_i_12 : STD_LOGIC_VECTOR ( 12 to 12 );
+  signal PMods_tri_i_13 : STD_LOGIC_VECTOR ( 13 to 13 );
+  signal PMods_tri_i_14 : STD_LOGIC_VECTOR ( 14 to 14 );
+  signal PMods_tri_i_15 : STD_LOGIC_VECTOR ( 15 to 15 );
+  signal PMods_tri_i_2 : STD_LOGIC_VECTOR ( 2 to 2 );
+  signal PMods_tri_i_3 : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal PMods_tri_i_4 : STD_LOGIC_VECTOR ( 4 to 4 );
+  signal PMods_tri_i_5 : STD_LOGIC_VECTOR ( 5 to 5 );
+  signal PMods_tri_i_6 : STD_LOGIC_VECTOR ( 6 to 6 );
+  signal PMods_tri_i_7 : STD_LOGIC_VECTOR ( 7 to 7 );
+  signal PMods_tri_i_8 : STD_LOGIC_VECTOR ( 8 to 8 );
+  signal PMods_tri_i_9 : STD_LOGIC_VECTOR ( 9 to 9 );
+  signal PMods_tri_io_0 : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal PMods_tri_io_1 : STD_LOGIC_VECTOR ( 1 to 1 );
+  signal PMods_tri_io_10 : STD_LOGIC_VECTOR ( 10 to 10 );
+  signal PMods_tri_io_11 : STD_LOGIC_VECTOR ( 11 to 11 );
+  signal PMods_tri_io_12 : STD_LOGIC_VECTOR ( 12 to 12 );
+  signal PMods_tri_io_13 : STD_LOGIC_VECTOR ( 13 to 13 );
+  signal PMods_tri_io_14 : STD_LOGIC_VECTOR ( 14 to 14 );
+  signal PMods_tri_io_15 : STD_LOGIC_VECTOR ( 15 to 15 );
+  signal PMods_tri_io_2 : STD_LOGIC_VECTOR ( 2 to 2 );
+  signal PMods_tri_io_3 : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal PMods_tri_io_4 : STD_LOGIC_VECTOR ( 4 to 4 );
+  signal PMods_tri_io_5 : STD_LOGIC_VECTOR ( 5 to 5 );
+  signal PMods_tri_io_6 : STD_LOGIC_VECTOR ( 6 to 6 );
+  signal PMods_tri_io_7 : STD_LOGIC_VECTOR ( 7 to 7 );
+  signal PMods_tri_io_8 : STD_LOGIC_VECTOR ( 8 to 8 );
+  signal PMods_tri_io_9 : STD_LOGIC_VECTOR ( 9 to 9 );
+  signal PMods_tri_o_0 : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal PMods_tri_o_1 : STD_LOGIC_VECTOR ( 1 to 1 );
+  signal PMods_tri_o_10 : STD_LOGIC_VECTOR ( 10 to 10 );
+  signal PMods_tri_o_11 : STD_LOGIC_VECTOR ( 11 to 11 );
+  signal PMods_tri_o_12 : STD_LOGIC_VECTOR ( 12 to 12 );
+  signal PMods_tri_o_13 : STD_LOGIC_VECTOR ( 13 to 13 );
+  signal PMods_tri_o_14 : STD_LOGIC_VECTOR ( 14 to 14 );
+  signal PMods_tri_o_15 : STD_LOGIC_VECTOR ( 15 to 15 );
+  signal PMods_tri_o_2 : STD_LOGIC_VECTOR ( 2 to 2 );
+  signal PMods_tri_o_3 : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal PMods_tri_o_4 : STD_LOGIC_VECTOR ( 4 to 4 );
+  signal PMods_tri_o_5 : STD_LOGIC_VECTOR ( 5 to 5 );
+  signal PMods_tri_o_6 : STD_LOGIC_VECTOR ( 6 to 6 );
+  signal PMods_tri_o_7 : STD_LOGIC_VECTOR ( 7 to 7 );
+  signal PMods_tri_o_8 : STD_LOGIC_VECTOR ( 8 to 8 );
+  signal PMods_tri_o_9 : STD_LOGIC_VECTOR ( 9 to 9 );
+  signal PMods_tri_t_0 : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal PMods_tri_t_1 : STD_LOGIC_VECTOR ( 1 to 1 );
+  signal PMods_tri_t_10 : STD_LOGIC_VECTOR ( 10 to 10 );
+  signal PMods_tri_t_11 : STD_LOGIC_VECTOR ( 11 to 11 );
+  signal PMods_tri_t_12 : STD_LOGIC_VECTOR ( 12 to 12 );
+  signal PMods_tri_t_13 : STD_LOGIC_VECTOR ( 13 to 13 );
+  signal PMods_tri_t_14 : STD_LOGIC_VECTOR ( 14 to 14 );
+  signal PMods_tri_t_15 : STD_LOGIC_VECTOR ( 15 to 15 );
+  signal PMods_tri_t_2 : STD_LOGIC_VECTOR ( 2 to 2 );
+  signal PMods_tri_t_3 : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal PMods_tri_t_4 : STD_LOGIC_VECTOR ( 4 to 4 );
+  signal PMods_tri_t_5 : STD_LOGIC_VECTOR ( 5 to 5 );
+  signal PMods_tri_t_6 : STD_LOGIC_VECTOR ( 6 to 6 );
+  signal PMods_tri_t_7 : STD_LOGIC_VECTOR ( 7 to 7 );
+  signal PMods_tri_t_8 : STD_LOGIC_VECTOR ( 8 to 8 );
+  signal PMods_tri_t_9 : STD_LOGIC_VECTOR ( 9 to 9 );
 begin
 BtnIn_tri_iobuf_0: component IOBUF
      port map (
@@ -292,6 +360,118 @@ LEDOut_tri_iobuf_9: component IOBUF
       O => LEDOut_tri_i_9(9),
       T => LEDOut_tri_t_9(9)
     );
+PMods_tri_iobuf_0: component IOBUF
+     port map (
+      I => PMods_tri_o_0(0),
+      IO => PMods_tri_io(0),
+      O => PMods_tri_i_0(0),
+      T => PMods_tri_t_0(0)
+    );
+PMods_tri_iobuf_1: component IOBUF
+     port map (
+      I => PMods_tri_o_1(1),
+      IO => PMods_tri_io(1),
+      O => PMods_tri_i_1(1),
+      T => PMods_tri_t_1(1)
+    );
+PMods_tri_iobuf_10: component IOBUF
+     port map (
+      I => PMods_tri_o_10(10),
+      IO => PMods_tri_io(10),
+      O => PMods_tri_i_10(10),
+      T => PMods_tri_t_10(10)
+    );
+PMods_tri_iobuf_11: component IOBUF
+     port map (
+      I => PMods_tri_o_11(11),
+      IO => PMods_tri_io(11),
+      O => PMods_tri_i_11(11),
+      T => PMods_tri_t_11(11)
+    );
+PMods_tri_iobuf_12: component IOBUF
+     port map (
+      I => PMods_tri_o_12(12),
+      IO => PMods_tri_io(12),
+      O => PMods_tri_i_12(12),
+      T => PMods_tri_t_12(12)
+    );
+PMods_tri_iobuf_13: component IOBUF
+     port map (
+      I => PMods_tri_o_13(13),
+      IO => PMods_tri_io(13),
+      O => PMods_tri_i_13(13),
+      T => PMods_tri_t_13(13)
+    );
+PMods_tri_iobuf_14: component IOBUF
+     port map (
+      I => PMods_tri_o_14(14),
+      IO => PMods_tri_io(14),
+      O => PMods_tri_i_14(14),
+      T => PMods_tri_t_14(14)
+    );
+PMods_tri_iobuf_15: component IOBUF
+     port map (
+      I => PMods_tri_o_15(15),
+      IO => PMods_tri_io(15),
+      O => PMods_tri_i_15(15),
+      T => PMods_tri_t_15(15)
+    );
+PMods_tri_iobuf_2: component IOBUF
+     port map (
+      I => PMods_tri_o_2(2),
+      IO => PMods_tri_io(2),
+      O => PMods_tri_i_2(2),
+      T => PMods_tri_t_2(2)
+    );
+PMods_tri_iobuf_3: component IOBUF
+     port map (
+      I => PMods_tri_o_3(3),
+      IO => PMods_tri_io(3),
+      O => PMods_tri_i_3(3),
+      T => PMods_tri_t_3(3)
+    );
+PMods_tri_iobuf_4: component IOBUF
+     port map (
+      I => PMods_tri_o_4(4),
+      IO => PMods_tri_io(4),
+      O => PMods_tri_i_4(4),
+      T => PMods_tri_t_4(4)
+    );
+PMods_tri_iobuf_5: component IOBUF
+     port map (
+      I => PMods_tri_o_5(5),
+      IO => PMods_tri_io(5),
+      O => PMods_tri_i_5(5),
+      T => PMods_tri_t_5(5)
+    );
+PMods_tri_iobuf_6: component IOBUF
+     port map (
+      I => PMods_tri_o_6(6),
+      IO => PMods_tri_io(6),
+      O => PMods_tri_i_6(6),
+      T => PMods_tri_t_6(6)
+    );
+PMods_tri_iobuf_7: component IOBUF
+     port map (
+      I => PMods_tri_o_7(7),
+      IO => PMods_tri_io(7),
+      O => PMods_tri_i_7(7),
+      T => PMods_tri_t_7(7)
+    );
+PMods_tri_iobuf_8: component IOBUF
+     port map (
+      I => PMods_tri_o_8(8),
+      IO => PMods_tri_io(8),
+      O => PMods_tri_i_8(8),
+      T => PMods_tri_t_8(8)
+    );
+PMods_tri_iobuf_9: component IOBUF
+     port map (
+      I => PMods_tri_o_9(9),
+      IO => PMods_tri_io(9),
+      O => PMods_tri_i_9(9),
+      T => PMods_tri_t_9(9)
+    );
 Periphery_i: component Periphery
      port map (
       BtnIn_tri_i(5) => BtnIn_tri_i_5(5),
@@ -369,6 +549,54 @@ Periphery_i: component Periphery
       LEDOut_tri_t(2) => LEDOut_tri_t_2(2),
       LEDOut_tri_t(1) => LEDOut_tri_t_1(1),
       LEDOut_tri_t(0) => LEDOut_tri_t_0(0),
+      PMods_tri_i(15) => PMods_tri_i_15(15),
+      PMods_tri_i(14) => PMods_tri_i_14(14),
+      PMods_tri_i(13) => PMods_tri_i_13(13),
+      PMods_tri_i(12) => PMods_tri_i_12(12),
+      PMods_tri_i(11) => PMods_tri_i_11(11),
+      PMods_tri_i(10) => PMods_tri_i_10(10),
+      PMods_tri_i(9) => PMods_tri_i_9(9),
+      PMods_tri_i(8) => PMods_tri_i_8(8),
+      PMods_tri_i(7) => PMods_tri_i_7(7),
+      PMods_tri_i(6) => PMods_tri_i_6(6),
+      PMods_tri_i(5) => PMods_tri_i_5(5),
+      PMods_tri_i(4) => PMods_tri_i_4(4),
+      PMods_tri_i(3) => PMods_tri_i_3(3),
+      PMods_tri_i(2) => PMods_tri_i_2(2),
+      PMods_tri_i(1) => PMods_tri_i_1(1),
+      PMods_tri_i(0) => PMods_tri_i_0(0),
+      PMods_tri_o(15) => PMods_tri_o_15(15),
+      PMods_tri_o(14) => PMods_tri_o_14(14),
+      PMods_tri_o(13) => PMods_tri_o_13(13),
+      PMods_tri_o(12) => PMods_tri_o_12(12),
+      PMods_tri_o(11) => PMods_tri_o_11(11),
+      PMods_tri_o(10) => PMods_tri_o_10(10),
+      PMods_tri_o(9) => PMods_tri_o_9(9),
+      PMods_tri_o(8) => PMods_tri_o_8(8),
+      PMods_tri_o(7) => PMods_tri_o_7(7),
+      PMods_tri_o(6) => PMods_tri_o_6(6),
+      PMods_tri_o(5) => PMods_tri_o_5(5),
+      PMods_tri_o(4) => PMods_tri_o_4(4),
+      PMods_tri_o(3) => PMods_tri_o_3(3),
+      PMods_tri_o(2) => PMods_tri_o_2(2),
+      PMods_tri_o(1) => PMods_tri_o_1(1),
+      PMods_tri_o(0) => PMods_tri_o_0(0),
+      PMods_tri_t(15) => PMods_tri_t_15(15),
+      PMods_tri_t(14) => PMods_tri_t_14(14),
+      PMods_tri_t(13) => PMods_tri_t_13(13),
+      PMods_tri_t(12) => PMods_tri_t_12(12),
+      PMods_tri_t(11) => PMods_tri_t_11(11),
+      PMods_tri_t(10) => PMods_tri_t_10(10),
+      PMods_tri_t(9) => PMods_tri_t_9(9),
+      PMods_tri_t(8) => PMods_tri_t_8(8),
+      PMods_tri_t(7) => PMods_tri_t_7(7),
+      PMods_tri_t(6) => PMods_tri_t_6(6),
+      PMods_tri_t(5) => PMods_tri_t_5(5),
+      PMods_tri_t(4) => PMods_tri_t_4(4),
+      PMods_tri_t(3) => PMods_tri_t_3(3),
+      PMods_tri_t(2) => PMods_tri_t_2(2),
+      PMods_tri_t(1) => PMods_tri_t_1(1),
+      PMods_tri_t(0) => PMods_tri_t_0(0),
       SPI0_MISO_I_0 => SPI0_MISO_I_0,
       SPI0_MOSI_O_0 => SPI0_MOSI_O_0,
       SPI0_SCLK_O_0 => SPI0_SCLK_O_0,
